@@ -15,6 +15,7 @@ import HeartLikedIcon from '@/assets/svgs/HeartLikedIcon';
 import ActionButton from '@/components/main/ActionButton';
 import ActionButtonDisabled from '@/components/main/ActionButtonDisabled';
 import DrawerPay from '@/components/main/DrawerPay';
+import { useRouter } from 'expo-router';
 
 
 
@@ -67,6 +68,16 @@ const StatContainer = ({icon, title, value}: PropType ) => {
 const Case = () => {
   const status = 1;
 
+  const router = useRouter()
+  
+    const navigateToHome = () => {
+      router.push('/')
+    }
+
+    const navigateToDonaters = () => {
+      router.push('/stacks/DonatersList')
+    }
+
   
 
   const [liked, setLiked] = useState(false);
@@ -80,7 +91,7 @@ const Case = () => {
 
 
         <View style={styles.topButtons}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={navigateToHome}>
               <View style={{backgroundColor:COLORS.White, width:30, height:30, borderRadius:15, justifyContent:'center', alignItems:'center'}}>
                   <Arrow color={COLORS.GreenPrimary} width={24} height={24}></Arrow>
               </View>
@@ -199,7 +210,7 @@ const Case = () => {
 
           <View style={styles.titleWrapper}>
             <Text style={styles.header}>أعلى المتبرعين</Text>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={navigateToDonaters}>
                 <Text style={styles.seeMore}>عرض المزيد</Text>
              </TouchableOpacity>
           </View>       

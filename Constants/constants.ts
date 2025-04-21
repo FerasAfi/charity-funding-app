@@ -4,6 +4,8 @@ import { useFonts } from 'expo-font';
 export const COLORS ={
     White: '#ffffff',
     Red:'#fe2e2e',
+    Gold:'#ffdc73',
+    Bronze:'#d4a96b',
 
     GreenBg: '#25A244',
     GreenDark:'#1A7431',

@@ -4,15 +4,21 @@ import { COLORS } from '@/Constants/constants'
 import Arrow from '@/assets/svgs/Case/Arrow'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import Donaters from '@/components/Donaters';
+import { useRouter } from 'expo-router';
 
 
 
 const DonatersList = () => {
+    const router = useRouter()
+      
+        const navigateToHome = () => {
+          router.push('/')
+        }
   return (
     <SafeAreaView style={styles.safeArea}>
       <StatusBar backgroundColor={COLORS.GreyBg}></StatusBar>
         <View style={styles.top}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={navigateToHome}>
               <View style={{backgroundColor:COLORS.White, width:30, height:30, borderRadius:15, justifyContent:'center', alignItems:'center', marginLeft:wp(5), marginTop:hp(1)}}>
                   <Arrow color={COLORS.GreenPrimary} width={24} height={24}></Arrow>
               </View>

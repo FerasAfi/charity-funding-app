@@ -9,7 +9,7 @@ import Search from '@/components/main/Search';
 import RequestContainer from '@/components/main/RequestContainer';
 import Categories from '@/components/main/Categories';
 import Case from '@/components/main/Case';
-import { Link } from 'expo-router';
+import { Link, useRouter } from 'expo-router';
 import Fade from '@/assets/svgs/Fade';
 import LottieView from 'lottie-react-native';
 
@@ -18,6 +18,24 @@ import LottieView from 'lottie-react-native';
 
 const index = () => {
   const fontsLoaded = customFonts();
+  const router = useRouter()
+
+  const navigateToCategories = () => {
+    router.push('/stacks/CategoriesList')
+  }
+
+  const navigateToCases = () => {
+    router.push('/stacks/CasesList')
+  }
+
+  const navigateToProfile = () => {
+    router.push('/(tabs)/profile')
+  }
+
+  const navigateToCase = () => {
+    router.push('../Case/${id}')
+  }
+
 
   
   return (
@@ -26,7 +44,7 @@ const index = () => {
       <ScrollView style={{}} showsVerticalScrollIndicator={false}>
         <View style={styles.top}>
           <View style={styles.profile}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={navigateToProfile}>
               <Image source={require("../../assets/images/profile.jpg")} style={styles.img}></Image>
             </TouchableOpacity>
             <View style={styles.greetings}>
@@ -46,7 +64,7 @@ const index = () => {
 
         <View style={styles.titleWrapper}>
           <Text style={styles.header}>تصنيفات</Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={navigateToCategories}>
             <Text style={styles.seeMore}>عرض المزيد</Text>
           </TouchableOpacity>
         </View>    
@@ -55,14 +73,14 @@ const index = () => {
 
         <View style={styles.titleWrapper}>
           <Text style={styles.header}>الأحدث</Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={navigateToCases}>
             <Text style={styles.seeMore}>عرض المزيد</Text>
           </TouchableOpacity>
         </View>
 
-        <View>
+        <TouchableOpacity onPress={navigateToCase}>
           <Case title={"مدرسة فائع الابتدائية"} category={"التعليم"} liked={true} goal={1500} current={500} supporters={22} date={5}></Case>
-        </View>
+        </TouchableOpacity>
 
         <Link href='../Case/[id]'>CASE</Link>
 
@@ -70,11 +88,7 @@ const index = () => {
 
         <Link href='../auth/SignUp'>SignUp</Link>
 
-        <Link href='../stacks/CategoriesList'>CategoriesList</Link>
-
         <Link href='../stacks/DonatersList'>DonatersList</Link>
-
-        <Link href='../stacks/CasesList'>CasesList</Link>
 
         <View style={{height:hp(50)}}></View>
 

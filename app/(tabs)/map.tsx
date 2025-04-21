@@ -66,22 +66,7 @@ const MapScreen = () => {
   return (
     <View style={styles.container}>
       <Search></Search>
-      <MapView
-        customMapStyle={mapstyle} 
-        ref={mapRef}
-        style={styles.map}
-        initialRegion={{
-          latitude: 34.0,
-          longitude: 9.0,
-          latitudeDelta: 6.5,
-          longitudeDelta: 6.5,
-        }}
-        minZoomLevel={2} 
-        maxZoomLevel={40}
-        onRegionChangeComplete={restrictMapBounds}
-      >
-        
-      </MapView>
+      
       <MiniCase title={"مدرسة فائع الابتدائية"} category={"التعليم"} liked={false} goal={1500} current={500} supporters={22} date={5}></MiniCase>
     </View>
   );
@@ -102,5 +87,20 @@ export default MapScreen;
 
 
 /*
-
+<MapView
+        customMapStyle={mapstyle} 
+        ref={mapRef}
+        style={styles.map}
+        initialRegion={{
+          latitude: 34.0,
+          longitude: 9.0,
+          latitudeDelta: 6.5,
+          longitudeDelta: 6.5,
+        }}
+        minZoomLevel={2} 
+        maxZoomLevel={40}
+        onRegionChangeComplete={restrictMapBounds}
+      >
+        
+      </MapView>
 */
